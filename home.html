@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>LieferBuddy – Startseite</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #e6f5ea, #d2f0dd);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    img.logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      background-color: #27ae60;
+      color: white;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: #219150;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LieferBuddy Logo" class="logo">
+
+    <h1>Willkommen bei LieferBuddy! 👋</h1>
+    <p>Dein Einkaufshelfer in Bad Rappenau – einfach, schnell und zuverlässig.</p>
+
+    <a class="button" href="/bestellen">🛒 Jetzt Bestellung aufgeben</a>
+
+    <div class="footer">
+      <p>&copy; 2025 LieferBuddy | Für unsere Nachbarschaft ❤️</p>
+    </div>
+  </div>
+
+</body>
+</html>

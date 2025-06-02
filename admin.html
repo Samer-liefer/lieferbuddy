@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Bestellungen</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .box {
+      background-color: #e6f5ea;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      font-size: 15px;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 7px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
+    .btn-success {
+      background-color: #27ae60;
+    }
+
+    .logout {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .logout a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .back-home {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .back-home a {
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>📦 Eingegangene Bestellungen</h1>
+
+    {% for block in anfragen %}
+      <div class="box">
+        {{ block.text }}
+        <form method="get" action="/delete/{{ block.id }}" onsubmit="return confirm('Wirklich als erledigt markieren?');" style="display:inline-block;">
+          <button class="btn" type="submit">✅ Erledigt</button>
+        </form>
+        {% if block.whatsapp %}
+          <a href="https://wa.me/{{ block.whatsapp | replace(' ', '') }}" target="_blank" class="btn btn-success">💬 WhatsApp</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <div class="logout">
+      <a href="/logout">🔐 Abmelden</a>
+    </div>
+
+    <div class="back-home">
+      <a href="/">Zurück zur Startseite</a>
+    </div>
+  </div>
+
+</body>
+</html>
