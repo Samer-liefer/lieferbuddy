@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Bestellformular</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background: #e0f2f1;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+    .form-label i {
+      margin-right: 5px;
+      color: #198754;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="form-container">
+      <h2 class="text-center"><i class="bi bi-bag-heart-fill"></i> Lieferbestellung</h2>
+      <form action="/bestellen" method="POST">
+
+        <div class="mb-3">
+          <label for="name" class="form-label"><i class="bi bi-person-fill"></i> Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="whatsapp" class="form-label"><i class="bi bi-whatsapp"></i> WhatsApp Nummer</label>
+          <input type="tel" class="form-control" id="whatsapp" name="whatsapp" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="adresse" class="form-label"><i class="bi bi-geo-alt-fill"></i> Lieferadresse</label>
+          <textarea class="form-control" id="adresse" name="adresse" rows="2" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="liste" class="form-label"><i class="bi bi-card-checklist"></i> Was möchten Sie bestellen?</label>
+          <textarea class="form-control" id="liste" name="liste" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="markt" class="form-label"><i class="bi bi-shop"></i> Supermarkt wählen</label>
+          <select class="form-control" id="markt" name="markt" required>
+            <option value="">-- Markt auswählen --</option>
+            <option value="Lidl">Lidl</option>
+            <option value="Rewe">Rewe</option>
+            <option value="Aldi">Aldi</option>
+            <option value="Netto">Netto</option>
+            <option value="Kaufland">Kaufland</option>
+            <option value="Müller">Müller</option>
+            <option value="Rossmann">Rossmann</option>
+          </select>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-4 py-2">
+            <i class="bi bi-send-check-fill"></i> Bestellung abschicken
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
