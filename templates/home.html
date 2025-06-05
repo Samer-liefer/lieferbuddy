@@ -2,46 +2,48 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LieferBuddy – Startseite</title>
   <style>
     body {
       background: linear-gradient(to bottom right, #e6f5ea, #d2f0dd);
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 40px;
+      padding: 20px;
+      font-size: 18px;
     }
 
     .container {
       max-width: 600px;
       margin: auto;
       background-color: white;
-      padding: 40px;
+      padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
       text-align: center;
     }
 
     img.logo {
-      width: 150px;
+      width: 140px;
       margin-bottom: 20px;
     }
 
     h1 {
       color: #2c3e50;
-      font-size: 26px;
+      font-size: 24px;
     }
 
     p {
-      font-size: 18px;
+      font-size: 16px;
       color: #444;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .button {
       background-color: #27ae60;
       color: white;
-      padding: 15px 25px;
-      font-size: 18px;
+      padding: 14px 22px;
+      font-size: 16px;
       border: none;
       border-radius: 8px;
       text-decoration: none;
@@ -55,15 +57,32 @@
     }
 
     .footer {
-      margin-top: 40px;
-      font-size: 14px;
+      margin-top: 35px;
+      font-size: 13px;
       color: #888;
+    }
+
+    .font-controls {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+    }
+
+    .font-controls button {
+      padding: 6px 10px;
+      margin: 2px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      background-color: #555;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" id="mainContent">
     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LieferBuddy Logo" class="logo">
 
     <h1>Willkommen bei LieferBuddy! 👋</h1>
@@ -75,6 +94,19 @@
       <p>&copy; 2025 LieferBuddy | Für unsere Nachbarschaft ❤️</p>
     </div>
   </div>
+
+  <div class="font-controls">
+    <button onclick="changeFontSize(1)">A+</button>
+    <button onclick="changeFontSize(-1)">A-</button>
+  </div>
+
+  <script>
+    let fontSize = 18;
+    function changeFontSize(amount) {
+      fontSize += amount;
+      document.getElementById('mainContent').style.fontSize = fontSize + 'px';
+    }
+  </script>
 
 </body>
 </html>
